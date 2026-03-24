@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English lession</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="BG typing master.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="BG typing master.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="BG typing master.png">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root{--bg:#f5efe4;--bg2:#fffaf1;--panel:#fffdf8;--panel-strong:#fff7e8;--line:#decfb3;--text:#231b12;--muted:#786b59;--brand:#c7682d;--brand-dark:#8e3b15;--accent:#174c45;--good:#15803d;--bad:#c2410c}
+        html.dark{--bg:#1e1611;--bg2:#2b211a;--panel:#35271f;--panel-strong:#3b2d24;--line:#5c4937;--text:#f7efe0;--muted:#d2c0aa;--brand:#e59a54;--brand-dark:#f5bc78;--accent:#88c2b7;--good:#5ed08a;--bad:#ff9c7a}
+        *{box-sizing:border-box}
+        body{margin:0;font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at top left,#fff7df 0,transparent 25%),radial-gradient(circle at right 20%,#f7dcc5 0,transparent 22%),linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);color:var(--text);overflow-x:hidden}
+        .app{max-width:1180px;margin:0 auto;padding:28px 16px 44px}
+        .hero{position:relative;margin-bottom:24px;padding:28px 30px;border:1px solid rgba(143,80,39,.18);border-radius:32px;background:linear-gradient(135deg,rgba(255,251,242,.96),rgba(255,243,220,.82));box-shadow:0 24px 45px rgba(90,56,23,.08);overflow:hidden}
+        html.dark .hero{border-color:rgba(229,154,84,.18);background:var(--panel)}
+        .hero::after{content:"";position:absolute;inset:auto -40px -50px auto;width:220px;height:220px;background:radial-gradient(circle,var(--brand) 0%,rgba(199,104,45,0) 70%);opacity:.16;pointer-events:none}
+        .hero-nav{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px;position:relative;z-index:1}
+        .hero-nav-links{display:flex;flex-wrap:wrap;gap:10px}
+        .nav-tab{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:999px;border:1px solid rgba(122,93,57,.16);background:rgba(255,251,242,.72);color:var(--text);text-decoration:none;font-size:.92rem;font-weight:700;font-family:Arial,sans-serif;transition:transform .18s ease,background .18s ease}
+        .nav-tab:hover{transform:translateY(-1px);background:rgba(255,247,232,.94)}
+        .nav-tab.active{background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;border-color:transparent;box-shadow:0 12px 24px rgba(199,104,45,.18)}
+        html.dark .nav-tab{background:rgba(53,39,31,.84);border-color:rgba(229,154,84,.14);color:#f7efe0}
+        .hero-bar{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+        .hero-copy{max-width:760px}
+        .hero-title{display:flex;align-items:center;gap:16px}
+        .hero-logo{width:108px;height:108px;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(199,104,45,.18))}
+        .theme-btn{border:1px solid rgba(122,93,57,.18);background:rgba(255,251,242,.75);color:var(--text);width:48px;height:48px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .18s ease,background .18s ease;position:relative;z-index:1}
+        .theme-btn:hover{transform:translateY(-1px)}
+        html.dark .theme-btn{background:rgba(53,39,31,.85);border-color:rgba(229,154,84,.2)}
+        .hero h1{margin:0;font-size:clamp(2.2rem,4.5vw,4rem);line-height:.95;letter-spacing:.02em;text-transform:uppercase}
+        .hero p{margin:12px 0 0;max-width:760px;color:var(--muted);line-height:1.7;font-size:1.04rem}
+        .layout{display:grid;grid-template-columns:320px 1fr;gap:20px}
+        .panel{background:rgba(255,253,248,.92);border:1px solid rgba(122,93,57,.2);border-radius:30px;box-shadow:0 22px 42px rgba(50,34,16,.07)}
+        html.dark .panel{background:rgba(53,39,31,.94);border-color:rgba(229,154,84,.12)}
+        .setup,.practice{padding:24px}
+        .setup h2,.practice h2{margin-top:0}
+        .field{margin-bottom:16px}
+        .field label{display:block;margin-bottom:8px;font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+        select,textarea,button{font:inherit}
+        select,textarea{width:100%;border:1px solid var(--line);border-radius:18px;padding:14px 16px;background:#fffdf9;color:var(--text)}
+        html.dark select,html.dark textarea{background:#2b211a}
+        select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--brand) 50%),linear-gradient(135deg,var(--brand) 50%,transparent 50%);background-position:calc(100% - 24px) calc(50% - 4px),calc(100% - 18px) calc(50% - 4px);background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+        textarea{min-height:140px;resize:vertical;line-height:1.75;background:linear-gradient(180deg,#fffdfa,#fff8ee)}
+        select:focus,textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(199,104,45,.12)}
+        .buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+        .btn{border:0;border-radius:999px;padding:13px 18px;font-weight:700;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+        .btn:hover{transform:translateY(-1px)}
+        .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;box-shadow:0 12px 24px rgba(199,104,45,.22)}
+        .btn.secondary{background:#e9f1ec;color:var(--accent)}
+        .btn.ghost{background:#fff9ef;color:var(--text);border:1px solid var(--line)}
+        html.dark .btn.ghost{background:#392b21}
+        .info,.resume,.message,.meta{border:1px solid rgba(122,93,57,.18);border-radius:22px;padding:15px 16px}
+        .info,.resume{background:linear-gradient(180deg,#fff9ef,#fff4df)}
+        html.dark .info,html.dark .resume{background:#3b2d22;color:#f3e7d5;text-shadow:none}
+        .resume{margin-top:12px}
+        .resume strong{display:block;margin-bottom:6px;color:var(--brand-dark)}
+        .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+        .stat{position:relative;overflow:hidden;background:linear-gradient(180deg,#fffdfa,#fdf3df);border:1px solid rgba(122,93,57,.18);border-radius:24px;padding:16px}
+        html.dark .stat{background:#3b2d22}
+        .stat::after{content:"";position:absolute;top:-22px;right:-18px;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,rgba(23,76,69,.16) 0%,rgba(23,76,69,0) 72%)}
+        .label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;margin-bottom:8px;font-weight:700}
+        .value{font-size:1.45rem;font-weight:800;line-height:1.1}
+        .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;background:linear-gradient(90deg,#fff9ee,#f7efe0)}
+        html.dark .meta{background:#3b2d22}
+        .badge{display:inline-block;padding:9px 13px;border-radius:999px;background:#f0e1c5;color:var(--brand-dark);font-size:.83rem;font-weight:700;border:1px solid rgba(142,59,21,.12)}
+        .progress-top,.helper{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
+        .progress{height:16px;border-radius:999px;background:#eadfcf;overflow:hidden;border:1px solid rgba(122,93,57,.08)}
+        .fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--brand),#e6a73a);transition:width .35s ease}
+        .lesson{position:relative;min-height:260px;border:1px solid rgba(122,93,57,.18);border-radius:30px;padding:24px 24px 28px;background:linear-gradient(180deg,#fffdf9,#fff5e6);font-size:1.18rem;line-height:2;white-space:pre-wrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.65)}
+        html.dark .lesson{background:#3b2d22}
+        .lesson::before{content:"Practice Sheet";position:absolute;top:14px;right:18px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#a48762}
+        .char{border-bottom:2px solid transparent;border-radius:3px;padding:0 1px;transition:all .14s ease}
+        .char.pending{color:#8a7d6d}.char.correct{color:var(--good)}.char.incorrect{color:var(--bad);background:#ffe0d2}.char.active{border-color:var(--accent);background:rgba(23,76,69,.08);animation:blink 1s infinite}
+        @keyframes blink{50%{border-color:transparent}}
+        .message{min-height:58px;background:linear-gradient(180deg,#f8f2e8,#f4ead8);color:#5b492f;font-weight:700}
+        .message.success{background:#eef9f0;color:#166534}
+        .message.error{background:#fff1ec;color:#9a3412}
+        .message.complete{background:#fff4dc;color:#8a4b0f}
+        .foot{position:relative;overflow:hidden;margin-top:24px;text-align:center;color:var(--muted);font-size:.92rem;letter-spacing:.04em;border:1px solid rgba(122,93,57,.18);border-radius:30px;padding:26px 24px 24px;background:linear-gradient(135deg,rgba(255,250,241,.95),rgba(247,239,224,.88));box-shadow:0 20px 38px rgba(90,56,23,.08)}
+        .foot::before{content:"";position:absolute;inset:-30px auto auto -20px;width:180px;height:180px;border-radius:999px;background:radial-gradient(circle,rgba(199,104,45,.13) 0%,rgba(199,104,45,0) 72%);pointer-events:none}
+        .foot::after{content:"";position:absolute;inset:auto -26px -36px auto;width:210px;height:210px;border-radius:999px;background:radial-gradient(circle,rgba(23,76,69,.12) 0%,rgba(23,76,69,0) 70%);pointer-events:none}
+        .foot-kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;padding:8px 14px;border-radius:999px;background:rgba(240,225,197,.9);color:var(--brand-dark);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;position:relative;z-index:1}
+        .foot-title{margin:0 0 8px;color:var(--text);font-size:1.35rem;position:relative;z-index:1}
+        .foot-copy{max-width:760px;margin:0 auto;line-height:1.8;position:relative;z-index:1}
+        .foot-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:16px;position:relative;z-index:1}
+        .foot-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid rgba(122,93,57,.14);color:var(--muted);font-size:.8rem}
+        .foot-note{margin-top:14px;font-size:.8rem;opacity:.88;position:relative;z-index:1}
+        html.dark .foot{background:var(--panel);color:#deccb7}
+        html.dark .foot-kicker{background:#443225;color:#f4c88f}
+        html.dark .foot-pill{background:rgba(255,255,255,.04);color:#eadcc8;border-color:rgba(234,220,200,.12)}
+        html.dark .foot-title{color:#fff4e4}
+        html.dark .foot-copy,html.dark .foot-note,html.dark .progress-top,html.dark .helper,html.dark .label,html.dark .lesson::before{color:#d7c2a8}
+        @media (max-width:900px){.hero-nav,.hero-bar{flex-direction:column;align-items:flex-start}.layout{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+        @media (max-width:640px){.app{padding:18px 12px 32px}.hero{padding:22px 20px}.hero-title{align-items:flex-start}.hero-logo{width:78px;height:78px}.hero-nav-links{flex-direction:column;width:100%}.nav-tab{width:100%}.grid{grid-template-columns:1fr}.buttons,.foot-meta{flex-direction:column}.btn{width:100%}.value{font-size:1.25rem}.lesson{font-size:1.05rem;line-height:1.8;padding:22px 18px 24px}.theme-btn{align-self:flex-end}}
+    </style>
+</head>
+<body>
+<div class="app">
+    <header class="hero">
+        <div class="hero-nav">
+            <div class="hero-nav-links">
+                <a class="nav-tab" href="BG Typing Master.html">Home</a>
+                <a class="nav-tab active" href="English lession.html">English lession</a>
+                <a class="nav-tab" href="Hindi Krutidev lession.html">Hindi Krutidev lession</a>
+                <a class="nav-tab" href="About Us.html">About Us</a>
+            </div>
+        </div>
+        <div class="hero-bar">
+            <div class="hero-copy">
+                <div class="hero-title">
+                    <img class="hero-logo" src="BG typing master.png" alt="BG logo">
+                    <h1>English lession</h1>
+                </div>
+                <p>Structured typing practice with a warmer study-studio layout, clearer hierarchy, and a stronger focus on your active lesson flow.</p>
+            </div>
+            <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle theme">
+                <i data-lucide="moon" id="themeIcon" style="width:20px;height:20px;"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="panel setup">
+            <h2>Practice Setup</h2>
+            <div class="field"><label for="levelSelect">Select Level</label><select id="levelSelect"></select></div>
+            <div class="field"><label for="categorySelect">Select Category</label><select id="categorySelect"></select></div>
+            <div class="field"><label for="sessionSelect">Select Session</label><select id="sessionSelect"></select></div>
+            <div class="buttons">
+                <button class="btn primary" id="startBtn" type="button">Start Practice</button>
+                <button class="btn secondary" id="resumeBtn" type="button">Resume Saved Progress</button>
+                <button class="btn ghost" id="resetProgressBtn" type="button">Reset Saved Progress</button>
+            </div>
+            <div class="resume"><strong>Saved progress</strong><span id="resumeText">No saved progress yet.</span></div>
+            <div class="info">Press <strong>Enter</strong> after typing. If the lesson matches, the next session opens automatically. Copy and paste is disabled.</div>
+        </aside>
+
+        <section class="panel practice">
+            <h2 style="margin:0 0 14px;font-size:1.5rem;">Live Practice Desk</h2>
+            <div class="grid">
+                <div class="stat"><div class="label">Current Level</div><div class="value" id="currentLevelLabel">Beginner</div></div>
+                <div class="stat"><div class="label">Category</div><div class="value" id="currentCategoryLabel">Home Row</div></div>
+                <div class="stat"><div class="label">Session</div><div class="value" id="currentSessionLabel">1/15</div></div>
+                <div class="stat"><div class="label">WPM / Accuracy</div><div class="value"><span id="wpmValue">0</span> / <span id="accuracyValue">100%</span></div></div>
+            </div>
+
+            <div class="meta">
+                <div>
+                    <span class="badge" id="categoryCountBadge">15 sessions</span>
+                    <span class="badge" id="levelProgressBadge">0 completed</span>
+                </div>
+                <div id="sessionStageLabel">Basic repetition</div>
+            </div>
+
+            <div>
+                <div class="progress-top"><span id="progressText">Overall progress: 0%</span><span id="typedStatsText">Typed words: 0 | Errors: 0</span></div>
+                <div class="progress"><div class="fill" id="progressFill"></div></div>
+            </div>
+
+            <div class="lesson" id="lessonBox"></div>
+            <textarea id="typingInput" placeholder="Type the exact lesson text here. Press Enter to move forward." spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+            <div class="message" id="messageBox">Start practice and keep the cursor in the input box.</div>
+            <div class="helper"><span>Enter moves to next lesson after validation.</span><span>Small tolerance: 1 minor mismatch allowed.</span></div>
+            <div class="buttons">
+                <button class="btn secondary" id="restartSessionBtn" type="button">Restart Current Session</button>
+                <button class="btn ghost" id="focusBtn" type="button">Focus Input</button>
+            </div>
+        </section>
+    </div>
+
+    <div class="foot">
+        <div class="foot-kicker"><i data-lucide="sparkles" style="width:16px;height:16px;"></i><span>Practice Better</span></div>
+        <h3 class="foot-title">English lession</h3>
+        <div class="foot-copy">Improve your typing speed and accuracy with a clean, structured English practice workspace designed for daily progress.</div>
+        <div class="foot-meta">
+            <span class="foot-pill"><i data-lucide="book-open" style="width:16px;height:16px;"></i><span>Structured Lessons</span></span>
+            <span class="foot-pill"><i data-lucide="activity" style="width:16px;height:16px;"></i><span>Live Progress</span></span>
+            <span class="foot-pill"><i data-lucide="calendar-check" style="width:16px;height:16px;"></i><span>Daily Practice</span></span>
+        </div>
+        <div class="foot-note">&copy; 2026 English lession practice system.</div>
+    </div>
+</div>
+
+<script>
+const STORAGE_KEY = "english_lession_progress_v2";
+const MINOR_TOLERANCE = 1;
+const THEME_KEY = "english_lession_theme_v1";
+
+function stageLabel(i, total) {
+    const r = (i + 1) / total;
+    if (r <= 0.25) return "Basic repetition";
+    if (r <= 0.55) return "Mixed pattern";
+    if (r <= 0.8) return "Real typing pattern";
+    return "Speed focus";
+}
+
+function createPatternSeries(patterns, count) {
+    const sessions = [];
+    for (let i = 0; i < count; i++) {
+        const a = patterns[i % patterns.length];
+        const b = patterns[(i + 1) % patterns.length];
+        const c = patterns[(i + 2) % patterns.length];
+        let text = "";
+        if (i < Math.ceil(count * 0.25)) text = `${a} ${a} ${b}`;
+        else if (i < Math.ceil(count * 0.55)) text = `${a} ${b} ${a} ${c}`;
+        else if (i < Math.ceil(count * 0.8)) text = `${a}. ${b}. ${c}.`;
+        else text = `${a}. ${b}. ${c}. ${a}.`;
+        sessions.push({ title: `Session ${i + 1}`, stage: stageLabel(i, count), text });
+    }
+    return sessions;
+}
+
+function createSentenceSeries(lines, count) {
+    const sessions = [];
+    for (let i = 0; i < count; i++) {
+        const a = lines[i % lines.length];
+        const b = lines[(i + 1) % lines.length];
+        const c = lines[(i + 2) % lines.length];
+        let text = "";
+        if (i < Math.ceil(count * 0.25)) text = a;
+        else if (i < Math.ceil(count * 0.55)) text = `${a} ${b}`;
+        else if (i < Math.ceil(count * 0.8)) text = `${a} ${b} ${c}`;
+        else text = `${a} ${b} ${c} ${a}`;
+        sessions.push({ title: `Session ${i + 1}`, stage: stageLabel(i, count), text });
+    }
+    return sessions;
+}
+
+const lessonLevels = [
+    { name: "Beginner", categories: [
+        { name: "Home Row", sessions: createPatternSeries(["asdf jkl;","a sad lad falls","dad asks as all lads","flask salad falls","ask all dads"], 15) },
+        { name: "Top Row", sessions: createPatternSeries(["qwer uiop","we write quiet words","power over pure wire","type your upper row","quick write your poem"], 10) },
+        { name: "Bottom Row", sessions: createPatternSeries(["zxcv bnm","zoom back and move","vivid cabins buzz","mix brave cozy zones","many boxes vibrate"], 10) },
+        { name: "Simple Words", sessions: createSentenceSeries(["The cat sat on the mat.","We can read and write well.","A good habit helps every day.","Small steps build strong speed.","Type slow first and stay calm."], 10) }
+    ]},
+    { name: "Intermediate", categories: [
+        { name: "Common Words", sessions: createSentenceSeries(["People often learn faster with steady daily practice.","Common words appear again and again in real typing work.","Your fingers improve when simple words feel automatic.","Focus on smooth movement instead of sudden speed jumps.","Keep your eyes on the screen and trust your hands."], 10) },
+        { name: "Sentences", sessions: createSentenceSeries(["Typing complete sentences trains rhythm, spacing, and punctuation control.","A calm pace makes sentence practice easier to read and repeat.","When you finish one line cleanly, the next line feels lighter.","Good sentence practice helps you write messages with fewer errors.","Consistent sessions improve both reading speed and keyboard confidence."], 10) },
+        { name: "Capital Letters", sessions: createSentenceSeries(["Ravi Visits Delhi Every Summer During School Break.","Typing Capital Letters Smoothly Builds Better Hand Control.","My Teacher Said Practice Brings Speed And Accuracy.","Early Morning Reading Helps Students Stay Sharp All Day.","Small Wins Create Strong Confidence In Typing Lessons."], 10) },
+        { name: "Punctuation", sessions: createSentenceSeries(["Read carefully, type slowly, and check each comma.","Can you type this line correctly, without rushing?","Practice today: focus, breathe, and keep moving.","He said, \"Accuracy first,\" and everyone agreed.","Stop, review, correct, continue, and finish well."], 10) },
+        { name: "Numbers", sessions: createSentenceSeries(["In 2026, I typed 25 lines in 15 minutes.","Room 14 has 6 desks, 24 chairs, and 2 fans.","Our class starts at 9:30 and ends at 4:15.","The report shows 18 tasks, 7 delays, and 3 fixes.","She saved 500 rupees in 5 weeks by planning well."], 10) }
+    ]},
+    { name: "Advanced", categories: [
+        { name: "Paragraphs", sessions: createSentenceSeries(["Strong typing habits come from accuracy, patience, and consistent review.","A skilled typist notices spacing, punctuation, and word flow without losing rhythm.","Paragraph practice prepares you for reports, study work, and real office tasks.","When your fingers move with confidence, your thoughts reach the screen faster.","Daily revision turns difficult patterns into reliable keyboard memory."], 10) },
+        { name: "Long Paragraphs", sessions: createSentenceSeries(["Long paragraph training helps you maintain focus over multiple ideas, sentence changes, and repeated punctuation while keeping your posture stable and your breathing relaxed.","As the lesson length increases, your typing rhythm must stay calm because sudden speed bursts often create errors that break flow and reduce confidence.","Writers, students, and office workers all benefit from longer practice sessions because real tasks rarely appear in short isolated lines.","With regular long-form practice, you begin to notice how reading ahead and typing smoothly work together to improve performance.","The goal is not only to move faster, but also to stay clear, precise, and dependable from the first sentence to the last."], 10) },
+        { name: "Mixed Content", sessions: createSentenceSeries(["Project update 4: the design draft is ready, but 2 sections still need review.","Today we typed notes, checked data, sent emails, and corrected timelines.","Please pack 3 files, 1 notebook, and a blue folder before noon.","The meeting starts at 10:45, ends by 11:30, and moves online at 2:00.","Mixed content practice improves control across words, digits, and punctuation."], 10) },
+        { name: "Special Characters", sessions: createSentenceSeries(["Type these symbols carefully: @ # $ % & * ( ) _ +","Codes may include user_name, item-id, or value=42.","A clean line can contain brackets [], braces {}, and slashes / \\.","Watch each detail in quotes \"like this\" and symbols such as ! ? : ;","Special character lessons improve precision under pressure."], 10) },
+        { name: "Real-life typing", sessions: createSentenceSeries(["Dear Team, please review the attached draft and share feedback by 5:00 pm today.","Hello Sir, I have completed the spreadsheet update and mailed the final copy.","Thank you for your message. We will schedule the next review meeting tomorrow morning.","Please confirm the address, contact number, and invoice details before dispatch.","I am writing to request an extension because the report needs one final revision."], 10) },
+        { name: "Error Correction", sessions: createSentenceSeries(["Type slowly, inspect mistakes, and correct weak patterns with care.","Error correction builds control because every fix teaches better movement.","When the wrong key appears, pause briefly and restart with calm focus.","A typist who studies errors improves faster than one who only chases speed.","Clean repetition after mistakes is the best path toward reliable progress."], 10) }
+    ]}
+];
+
+const levelSelect = document.getElementById("levelSelect");
+const categorySelect = document.getElementById("categorySelect");
+const sessionSelect = document.getElementById("sessionSelect");
+const startBtn = document.getElementById("startBtn");
+const resumeBtn = document.getElementById("resumeBtn");
+const resetProgressBtn = document.getElementById("resetProgressBtn");
+const restartSessionBtn = document.getElementById("restartSessionBtn");
+const focusBtn = document.getElementById("focusBtn");
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+
+function syncThemeIcon() {
+    const isDark = document.documentElement.classList.contains("dark");
+    themeIcon.setAttribute("data-lucide", isDark ? "sun" : "moon");
+    lucide.createIcons();
+}
+
+function initTheme() {
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    if (savedTheme === "dark") document.documentElement.classList.add("dark");
+    else document.documentElement.classList.remove("dark");
+    syncThemeIcon();
+}
+const typingInput = document.getElementById("typingInput");
+const lessonBox = document.getElementById("lessonBox");
+const messageBox = document.getElementById("messageBox");
+const currentLevelLabel = document.getElementById("currentLevelLabel");
+const currentCategoryLabel = document.getElementById("currentCategoryLabel");
+const currentSessionLabel = document.getElementById("currentSessionLabel");
+const categoryCountBadge = document.getElementById("categoryCountBadge");
+const levelProgressBadge = document.getElementById("levelProgressBadge");
+const sessionStageLabel = document.getElementById("sessionStageLabel");
+const progressFill = document.getElementById("progressFill");
+const progressText = document.getElementById("progressText");
+const typedStatsText = document.getElementById("typedStatsText");
+const wpmValue = document.getElementById("wpmValue");
+const accuracyValue = document.getElementById("accuracyValue");
+const resumeText = document.getElementById("resumeText");
+
+const state = { levelIndex: 0, categoryIndex: 0, sessionIndex: 0, sessionStartedAt: null, typedChars: 0, correctChars: 0, errors: 0, completedSessions: 0 };
+
+function getSavedProgress() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || null; }
+    catch { return null; }
+}
+
+function saveProgress() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        levelIndex: state.levelIndex,
+        categoryIndex: state.categoryIndex,
+        sessionIndex: state.sessionIndex,
+        completedSessions: state.completedSessions
+    }));
+    renderResumeInfo();
+}
+
+function renderResumeInfo() {
+    const saved = getSavedProgress();
+    if (!saved) { resumeText.textContent = "No saved progress yet."; return; }
+    const level = lessonLevels[saved.levelIndex];
+    const category = level && level.categories[saved.categoryIndex];
+    if (!level || !category) { resumeText.textContent = "Saved progress is not valid anymore."; return; }
+    resumeText.textContent = `${level.name} > ${category.name} > Session ${saved.sessionIndex + 1}/${category.sessions.length}`;
+}
+
+function clearSavedProgress() {
+    localStorage.removeItem(STORAGE_KEY);
+    renderResumeInfo();
+}
+
+function totalSessionCount() {
+    return lessonLevels.reduce((sum, level) => sum + level.categories.reduce((x, c) => x + c.sessions.length, 0), 0);
+}
+
+function completedBefore(levelIndex, categoryIndex, sessionIndex) {
+    let count = 0;
+    for (let i = 0; i < lessonLevels.length; i++) {
+        for (let j = 0; j < lessonLevels[i].categories.length; j++) {
+            if (i === levelIndex && j === categoryIndex) return count + sessionIndex;
+            count += lessonLevels[i].categories[j].sessions.length;
+        }
+    }
+    return count;
+}
+
+function currentLevel() { return lessonLevels[state.levelIndex]; }
+function currentCategory() { return currentLevel().categories[state.categoryIndex]; }
+function currentSession() { return currentCategory().sessions[state.sessionIndex]; }
+
+function populateLevels() {
+    levelSelect.innerHTML = lessonLevels.map((level, i) => `<option value="${i}">${level.name}</option>`).join("");
+}
+
+function populateCategories() {
+    const categories = lessonLevels[Number(levelSelect.value)].categories;
+    categorySelect.innerHTML = categories.map((c, i) => `<option value="${i}">${c.name} (${c.sessions.length})</option>`).join("");
+}
+
+function populateSessions() {
+    const sessions = lessonLevels[Number(levelSelect.value)].categories[Number(categorySelect.value)].sessions;
+    sessionSelect.innerHTML = sessions.map((s, i) => `<option value="${i}">Session ${i + 1} - ${s.stage}</option>`).join("");
+}
+
+function syncSelectorsFromState() {
+    levelSelect.value = String(state.levelIndex);
+    populateCategories();
+    categorySelect.value = String(state.categoryIndex);
+    populateSessions();
+    sessionSelect.value = String(state.sessionIndex);
+}
+
+function syncStateFromSelectors() {
+    state.levelIndex = Number(levelSelect.value);
+    state.categoryIndex = Number(categorySelect.value);
+    state.sessionIndex = Number(sessionSelect.value);
+    state.completedSessions = completedBefore(state.levelIndex, state.categoryIndex, state.sessionIndex);
+}
+
+function setMessage(text, type = "") {
+    messageBox.textContent = text;
+    messageBox.className = `message${type ? ` ${type}` : ""}`;
+}
+
+function accuracy() {
+    if (!state.typedChars) return 100;
+    return Math.max(0, Math.round((state.correctChars / state.typedChars) * 100));
+}
+
+function wpm() {
+    if (!state.sessionStartedAt || !state.typedChars) return 0;
+    const minutes = Math.max((Date.now() - state.sessionStartedAt) / 60000, 1 / 60);
+    return Math.max(0, Math.round((state.correctChars / 5) / minutes));
+}
+
+function updateProgressUi() {
+    const level = currentLevel();
+    const category = currentCategory();
+    const session = currentSession();
+    const total = totalSessionCount();
+    const percent = Math.round((state.completedSessions / total) * 100);
+    const levelDone = level.categories.slice(0, state.categoryIndex).reduce((sum, c) => sum + c.sessions.length, 0) + state.sessionIndex;
+    currentLevelLabel.textContent = level.name;
+    currentCategoryLabel.textContent = category.name;
+    currentSessionLabel.textContent = `${state.sessionIndex + 1}/${category.sessions.length}`;
+    categoryCountBadge.textContent = `${category.sessions.length} sessions`;
+    levelProgressBadge.textContent = `${levelDone} completed in ${level.name}`;
+    sessionStageLabel.textContent = session.stage;
+    progressFill.style.width = `${percent}%`;
+    progressText.textContent = `Overall progress: ${percent}% (${state.completedSessions}/${total} sessions completed)`;
+}
+
+function renderLesson() {
+    const target = currentSession().text;
+    const typed = typingInput.value;
+    lessonBox.innerHTML = "";
+    for (let i = 0; i < target.length; i++) {
+        const span = document.createElement("span");
+        span.textContent = target[i];
+        if (typed[i] == null) span.className = `char pending${i === typed.length ? " active" : ""}`;
+        else if (typed[i] === target[i]) span.className = "char correct";
+        else span.className = "char incorrect";
+        lessonBox.appendChild(span);
+    }
+}
+
+function resetMetrics() {
+    state.sessionStartedAt = null;
+    state.typedChars = 0;
+    state.correctChars = 0;
+    state.errors = 0;
+    wpmValue.textContent = "0";
+    accuracyValue.textContent = "100%";
+    typedStatsText.textContent = "Typed words: 0 | Errors: 0";
+}
+
+function focusInput() {
+    typingInput.focus();
+    typingInput.setSelectionRange(typingInput.value.length, typingInput.value.length);
+}
+
+function loadSession() {
+    typingInput.value = "";
+    resetMetrics();
+    renderLesson();
+    updateProgressUi();
+    setMessage("Type the lesson and press Enter to validate this session.");
+    focusInput();
+    saveProgress();
+}
+
+function startPractice() {
+    syncStateFromSelectors();
+    loadSession();
+}
+
+function updateTypingStats() {
+    const target = currentSession().text;
+    const typed = typingInput.value;
+    let correct = 0;
+    let errors = 0;
+    for (let i = 0; i < typed.length; i++) {
+        if (typed[i] === target[i]) correct++;
+        else errors++;
+    }
+    state.typedChars = typed.length;
+    state.correctChars = correct;
+    state.errors = errors;
+    wpmValue.textContent = String(wpm());
+    accuracyValue.textContent = `${accuracy()}%`;
+    typedStatsText.textContent = `Typed words: ${typed.trim() ? typed.trim().split(/\\s+/).length : 0} | Errors: ${errors}`;
+    renderLesson();
+}
+
+function mismatchCount(target, typed) {
+    let count = 0;
+    const max = Math.max(target.length, typed.length);
+    for (let i = 0; i < max; i++) if ((target[i] || "") !== (typed[i] || "")) count++;
+    return count;
+}
+
+function tryAdvance() {
+    const target = currentSession().text.trim();
+    const typed = typingInput.value.trim();
+    const mismatches = mismatchCount(target, typed);
+    if (!typed) { setMessage("Please type the lesson before pressing Enter.", "error"); focusInput(); return; }
+    if (mismatches > MINOR_TOLERANCE) {
+        setMessage(`Text does not match. ${mismatches} mismatches found. Fix the red characters and press Enter again.`, "error");
+        focusInput();
+        return;
+    }
+
+    state.completedSessions = completedBefore(state.levelIndex, state.categoryIndex, state.sessionIndex + 1);
+    const level = currentLevel();
+    const category = currentCategory();
+    const lastSession = state.sessionIndex === category.sessions.length - 1;
+    const lastCategory = state.categoryIndex === level.categories.length - 1;
+    const lastLevel = state.levelIndex === lessonLevels.length - 1;
+
+    if (!lastSession) {
+        state.sessionIndex++;
+        syncSelectorsFromState();
+        loadSession();
+        setMessage("Correct. Next session loaded automatically.", "success");
+        return;
+    }
+    if (!lastCategory) {
+        state.categoryIndex++;
+        state.sessionIndex = 0;
+        syncSelectorsFromState();
+        loadSession();
+        setMessage(`Category Completed. Moving to ${currentCategory().name}.`, "complete");
+        return;
+    }
+    if (!lastLevel) {
+        state.levelIndex++;
+        state.categoryIndex = 0;
+        state.sessionIndex = 0;
+        syncSelectorsFromState();
+        loadSession();
+        setMessage(`Level Completed. Welcome to ${currentLevel().name}.`, "complete");
+        return;
+    }
+
+    state.completedSessions = totalSessionCount();
+    updateProgressUi();
+    clearSavedProgress();
+    typingInput.value = "";
+    renderLesson();
+    setMessage("All Levels Completed 🎉", "success");
+    focusInput();
+}
+
+function resumeSaved() {
+    const saved = getSavedProgress();
+    if (!saved) { setMessage("No saved progress found to resume.", "error"); return; }
+    state.levelIndex = saved.levelIndex;
+    state.categoryIndex = saved.categoryIndex;
+    state.sessionIndex = saved.sessionIndex;
+    state.completedSessions = saved.completedSessions || completedBefore(saved.levelIndex, saved.categoryIndex, saved.sessionIndex);
+    syncSelectorsFromState();
+    loadSession();
+    setMessage("Saved progress resumed.", "success");
+}
+
+function restartSession() {
+    typingInput.value = "";
+    resetMetrics();
+    renderLesson();
+    setMessage("Current session restarted.");
+    focusInput();
+}
+
+levelSelect.addEventListener("change", () => { populateCategories(); categorySelect.value = "0"; populateSessions(); sessionSelect.value = "0"; });
+categorySelect.addEventListener("change", () => { populateSessions(); sessionSelect.value = "0"; });
+startBtn.addEventListener("click", startPractice);
+resumeBtn.addEventListener("click", resumeSaved);
+resetProgressBtn.addEventListener("click", () => { clearSavedProgress(); setMessage("Saved progress cleared.", "complete"); });
+restartSessionBtn.addEventListener("click", restartSession);
+focusBtn.addEventListener("click", focusInput);
+themeToggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    localStorage.setItem(THEME_KEY, document.documentElement.classList.contains("dark") ? "dark" : "light");
+    syncThemeIcon();
+});
+typingInput.addEventListener("paste", e => e.preventDefault());
+typingInput.addEventListener("input", () => {
+    if (!state.sessionStartedAt) state.sessionStartedAt = Date.now();
+    updateTypingStats();
+});
+typingInput.addEventListener("keydown", e => {
+    if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        tryAdvance();
+    }
+});
+document.addEventListener("click", e => {
+    if (!e.target.closest("select") && !e.target.closest("button")) focusInput();
+});
+
+populateLevels();
+populateCategories();
+populateSessions();
+syncSelectorsFromState();
+initTheme();
+renderLesson();
+updateProgressUi();
+renderResumeInfo();
+focusInput();
+</script>
+</body>
+</html>
